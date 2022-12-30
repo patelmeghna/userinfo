@@ -1,0 +1,65 @@
+.info-form {
+    background: $secondary;
+    border-radius: 10px;
+
+    &-wrap {
+        padding: 150px 200px;
+    }
+}
+.react-date-picker {
+    &__wrapper {
+        border: none !important;
+    }
+    
+    &__inputGroup__input {
+        color: $gray-300;
+    }
+}
+.calendar-box {
+    border-radius: 5px;
+}
+.form {
+    &-control, &-select {
+        border: none;
+        background: $dark;
+        padding: 12px;
+        color: $gray-300;
+
+        &:focus {
+            background: #1f1f2f;
+            box-shadow: none;
+            color: $gray-300;
+        }
+
+        &::placeholder {
+            color: $gray-600;
+        }
+    }
+
+    &-header {
+        padding: 50px 50px 30px 50px;
+        border-bottom: 1px dashed $gray-600;
+
+        h3 {
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+
+    &-input-body {
+        padding: 50px;
+    }
+
+    &-footer {
+        padding: 30px 50px 50px 50px;
+        border-top: 1px dashed $gray-600;
+    }
+}
+
+.btn {
+    padding: 11px 20px;
+
+    &-primary {
+        color: $white;
+    }
+}

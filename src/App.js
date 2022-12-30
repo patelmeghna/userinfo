@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import './assets/scss/index.scss';
+
+// Components
+const UserForm = React.lazy(() => import('./components/userForm'));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback = {<p>Loading...</p>}>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<UserForm />} />
+        </Routes>
+      </BrowserRouter>
+    </Suspense>
   );
 }
 
