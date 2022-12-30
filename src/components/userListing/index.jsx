@@ -5,7 +5,7 @@ import { Container, Table } from "react-bootstrap";
 const UserListing = () => {
   const [APIData, setAPIData] = useState([]);
   useEffect(() => {
-    axios.get(`https://retoolapi.dev/s9TiRL/user`).then((response) => {
+    axios.get(`https://retoolapi.dev/UvU3e4/user`).then((response) => {
       setAPIData(response.data);
     });
   }, []);

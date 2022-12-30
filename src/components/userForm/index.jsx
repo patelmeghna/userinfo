@@ -26,11 +26,7 @@ const UserForm = () => {
     let payload = { name: fullName, email: email, date: value, country: country, image: fileName };
 
     await axios
-      .post(
-        "https://api-generator.retool.com/s9TiRL/user",
-        payload,
-        axiosConfig
-      )
+      .post("https://retoolapi.dev/UvU3e4/user", payload, axiosConfig)
       .then((res) => {
         console.log(res.data);
       })
