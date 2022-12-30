@@ -1,39 +1,47 @@
-import React, { useState } from 'react'
-import { Col, Container, Form, Row } from 'react-bootstrap'
-import DatePicker from 'react-date-picker';
-import AvatarInput from './AvatarInput';
-import countries from './Countries';
-import axios from 'axios';
+import React, { useState } from "react";
+import { Col, Container, Form, Row } from "react-bootstrap";
+import DatePicker from "react-date-picker";
+import AvatarInput from "./AvatarInput";
+import countries from "./Countries";
+import axios from "axios";
 
 const UserForm = () => {
-    const [value, setValue] = useState(""),
-      [file, setFile] = useState(""),
-      [fileName, setFileName] = useState(""),
-      [fullName, setFullName] = useState(""),
-      [email, setEmail] = useState(""),
-      [country, setCountry] = useState("");
+  const [value, setValue] = useState(""),
+    [file, setFile] = useState(""),
+    [fileName, setFileName] = useState(""),
+    [fullName, setFullName] = useState(""),
+    [email, setEmail] = useState(""),
+    [country, setCountry] = useState("");
 
-    const postData = (e) => {
-      e.preventDefault();
-      // const newLocal = axios
-      //   .post(`https://crudcrud.com/api/a879e059d67a4204b72fdddf2e4f411d`, {
-      //     Avatar: file,
-      //     Name: fullName,
-      //     Email: email,
-      //     Country: country,
-      //     DOB: value
-      //   })
-      //   .then((response) => {
-      //     console.log(response.data);
-      //     console.log(response.status);
-      //   });
+    let axiosConfig = {
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Access-Control-Allow-Origin": "*",
+      },
+    };
 
-      console.log(value)
-    }
+  async function postData(e) {
+    e.preventDefault();
+
+    let payload = { name: fullName, email: email, date: value, country: country, image: fileName };
+
+    await axios
+      .post(
+        "https://api-generator.retool.com/s9TiRL/user",
+        payload,
+        axiosConfig
+      )
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   return (
     <Container className="info-form-wrap">
-      <Form className="info-form">
+      <Form className="info-form" onSubmit={postData}>
         <div className="form-header">
           <h3 className="form-title">Add User</h3>
         </div>
@@ -81,14 +89,17 @@ const UserForm = () => {
                 <Form.Select onChange={(e) => setCountry(e.target.value)}>
                   <option value="">--- Select Country ---</option>
                   {countries.map((coun) => {
-                    return <option value={coun.code}>{coun.name}</option>;
+                    return <option key={coun.code} value={coun.code}>{coun.name}</option>;
                   })}
                 </Form.Select>
               </Col>
             </Row>
           </Col>
           <Col xs="12">
-            <button type="submit" onClick={postData} className="btn btn-primary float-end">
+            <button
+              type="submit"
+              className="btn btn-primary float-end"
+            >
               Submit
             </button>
           </Col>
@@ -96,6 +107,6 @@ const UserForm = () => {
       </Form>
     </Container>
   );
-}
+};
 
-export default UserForm
+export default UserForm;

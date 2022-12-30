@@ -61,8 +61,8 @@ const AvatarInput = ({fileName, setFileName, file, setFile}) => {
               fill="none"
               stroke="#000"
               stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
+              strokeLinecap="round"
+              strokeWidth="16"
             />
             <line
               x1="88"
@@ -72,15 +72,15 @@ const AvatarInput = ({fileName, setFileName, file, setFile}) => {
               fill="none"
               stroke="#000"
               stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
+              strokeLinecap="round"
+              strokeWidth="16"
             />
             <path
               fill="none"
               stroke="#000"
               stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="16"
+              strokeLinecap="round"
+              strokeWidth="16"
               d="M200,56V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V56"
             />
           </svg>
