@@ -15,18 +15,20 @@ const UserForm = () => {
 
     const postData = (e) => {
       e.preventDefault();
-      axios
-        .post(`https://crudcrud.com/api/a879e059d67a4204b72fdddf2e4f411d`, {
-          Avatar: file,
-          Name: fullName,
-          Email: email,
-          Country: country,
-          DOB: value
-        })
-        .then((response) => {
-          console.log(response.data);
-          console.log(response.status);
-        });
+      // const newLocal = axios
+      //   .post(`https://crudcrud.com/api/a879e059d67a4204b72fdddf2e4f411d`, {
+      //     Avatar: file,
+      //     Name: fullName,
+      //     Email: email,
+      //     Country: country,
+      //     DOB: value
+      //   })
+      //   .then((response) => {
+      //     console.log(response.data);
+      //     console.log(response.status);
+      //   });
+
+      console.log(value)
     }
 
   return (
